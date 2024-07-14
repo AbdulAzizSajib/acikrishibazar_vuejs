@@ -9,6 +9,7 @@ export const useLoginStore = defineStore("loginStore", {
     isLoading: false,
     token: "",
     userInfo: "",
+    allData: null,
   }),
 
   actions: {
@@ -38,6 +39,62 @@ export const useLoginStore = defineStore("loginStore", {
         this.token = null;
         this.userInfo = null;
         Cookies.set("token", this.token);
+        toast.error(error.message);
+      }
+    },
+    async handleGetInfo() {
+      this.isLoading = true;
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        this.isLoading = false;
+        if (response?.status == 200) {
+          this.allData = response?.data;
+
+          console.log("All Data->>", this.allData);
+        } else {
+          toast.error("Invalid Credentials");
+        }
+      } catch (error) {
+        toast.error(error.message);
+      }
+    },
+
+    async handleUpdate(id, data) {
+      this.isLoading = true;
+      try {
+        const response = await axios.put(
+          `https://fakestoreapi.com/products/${id}`,
+          data
+        );
+        this.isLoading = false;
+        if (response?.status == 200) {
+          this.allData = response?.data;
+
+          console.log("All Data->", this.allData);
+          return 1;
+        } else {
+          toast.error("Invalid Credentials");
+        }
+      } catch (error) {
+        toast.error(error.message);
+      }
+    },
+    async handleDelete(id) {
+      this.isLoading = true;
+      try {
+        const response = await axios.delete(
+          `https://fakestoreapi.com/products/${id}`
+        );
+        this.isLoading = false;
+        if (response?.status == 200) {
+          this.allData = this.allData.filter((item) => item.id !== id);
+          console.log("All Data->>", this.allData);
+          toast.success("Product deleted successfully");
+        } else {
+          toast.error("Failed to delete product");
+        }
+      } catch (error) {
+        this.isLoading = false;
         toast.error(error.message);
       }
     },

@@ -49,7 +49,7 @@ import {
           </li>
         </ul>
       </div>
-      <a class="text-green-700  md:text-[2vw] font-semibold">
+      <a class="text-green-700 md:text-[2vw] font-semibold">
         ACI Krishibazar
       </a>
 
@@ -99,25 +99,24 @@ import {
 
     <!-- Icons -->
     <div
-      class="border  flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-1 lg:space-x-2 mt-2 w-full md:w-auto md:mt-0"
+      class="border flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-1 lg:space-x-2 mt-2 w-full md:w-auto md:mt-0"
     >
-    <div class="space-x-1 flex ">
-      <button
-        class="p-2  rounded-full group hover:bg-white hover:border-2 hover:border-green-600 bg-green-600"
-      >
-        <BellIcon class="w-6 h-6 text-white group-hover:text-green-600" />
-      </button>
-      <button class="p-2 rounded-full bg-green-600">
-        <HeartIcon class="w-6 h-6 text-white" />
-      </button>
-      <button class="p-2 rounded-full bg-green-600">
-        <ShoppingCartIcon class="w-6 h-6 text-white" />
-      </button>
-      <button class="p-2 rounded-full bg-green-600">
-        <UserIcon class="w-6 h-6 text-white" />
-      </button>
-    </div>
-     
+      <div class="space-x-1 flex">
+        <button
+          class="p-2 rounded-full group hover:bg-white hover:border-2 hover:border-green-600 bg-green-600"
+        >
+          <BellIcon class="w-6 h-6 text-white group-hover:text-green-600" />
+        </button>
+        <button class="p-2 rounded-full bg-green-600">
+          <HeartIcon class="w-6 h-6 text-white" />
+        </button>
+        <button class="p-2 rounded-full bg-green-600">
+          <ShoppingCartIcon class="w-6 h-6 text-white" />
+        </button>
+        <button class="p-2 rounded-full bg-green-600">
+          <UserIcon class="w-6 h-6 text-white" />
+        </button>
+      </div>
     </div>
   </div>
 </template>
